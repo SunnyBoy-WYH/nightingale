@@ -166,6 +166,7 @@ CREATE TABLE `board` (
     `group_id` bigint not null default 0 comment 'busi group id',
     `name` varchar(191) not null,
     `tags` varchar(255) not null comment 'split by space',
+    `public` tinyint(1) not null default 0 comment '0:false 1:true',
     `create_at` bigint not null default 0,
     `create_by` varchar(64) not null default '',
     `update_at` bigint not null default 0,
@@ -288,6 +289,8 @@ CREATE TABLE `alert_mute` (
 
 CREATE TABLE `alert_subscribe` (
     `id` bigint unsigned not null auto_increment,
+    `name` varchar(255) not null default '',
+    `disabled` tinyint(1) not null default 0 comment '0:enabled 1:disabled',
     `group_id` bigint not null default 0 comment 'busi group id',
     `cate` varchar(128) not null,
     `cluster` varchar(128) not null,
